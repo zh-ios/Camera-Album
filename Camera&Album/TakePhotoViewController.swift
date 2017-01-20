@@ -29,6 +29,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         super.viewWillAppear(animated)
         // 监听对焦
         self.input.addObserver(self, forKeyPath: "adjustingFocus", options: .new, context: nil)
+        self.session.startRunning()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,6 +40,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     var connection: AVCaptureConnection!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.colorWithHexString("111111")
         checkAuth()
         initUI()
         initDeviceConfig()
@@ -62,7 +64,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
           bottomView.takePhotoBtnOnClick = {
             (_ btn: UIButton) in
             printLog("----点击了照相")
-            weakSelf?.getPhoto()
+            self.getPhoto()
         }
     }
     
@@ -121,8 +123,6 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         // 初始化图片输出
         self.imageOutput = AVCaptureStillImageOutput.init()
         self.imageOutput.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-        //
-        self.connection = self.imageOutput.connection(withMediaType: AVMediaTypeVideo)
         // 判断
         if self.session.canAddInput(self.input) {
             self.session.addInput(self.input)
@@ -130,10 +130,9 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         if self.session.canAddOutput(self.imageOutput) {
             self.session.addOutput(self.imageOutput)
         }
-        
-        if self.session.canAdd(self.connection) {
-            self.session.add(self.connection)
-        }
+        //
+        self.connection = self.imageOutput.connection(withMediaType: AVMediaTypeVideo)
+
         // 初始化预览图层
         self.previewLayer = AVCaptureVideoPreviewLayer.init(session: self.session)
         self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -167,10 +166,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
                 if granted {
                     
                 } else {
-                    // 到主线程中显示alert
-                    DispatchQueue.main.async {
-                       self.showAlert()
-                    }
+                    self.showAlert()
                 }
             })
             break
@@ -178,11 +174,14 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     }
     
     fileprivate func showAlert() {
-        let alert = UIAlertView.init(title: nil, message: "请在“设置-隐私”选项中，允许访问您的相机", delegate: self, cancelButtonTitle: "确定")
-        alert.show()
+        // 到主线程中显示alert
+        DispatchQueue.main.async {
+            let alert = UIAlertView.init(title: nil, message: "请在“设置-隐私”选项中，允许访问您的相机", delegate: self, cancelButtonTitle: "确定")
+            alert.show()
+        }
     }
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
