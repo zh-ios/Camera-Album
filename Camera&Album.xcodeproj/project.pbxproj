@@ -30,6 +30,8 @@
 		86B5A2BE1E3067C300738920 /* ZGValidateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A2B61E3067C300738920 /* ZGValidateTool.swift */; };
 		86B5A2BF1E3067C300738920 /* ZGVersionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A2B71E3067C300738920 /* ZGVersionTool.swift */; };
 		86B5A2C11E3068CD00738920 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A2C01E3068CD00738920 /* BottomView.swift */; };
+		86B5A2C81E30AA4500738920 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A2C71E30AA4500738920 /* Constant.swift */; };
+		86B5A2CD1E30AE3800738920 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A2CC1E30AE3800738920 /* TakePhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,9 @@
 		86B5A2B61E3067C300738920 /* ZGValidateTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZGValidateTool.swift; sourceTree = "<group>"; };
 		86B5A2B71E3067C300738920 /* ZGVersionTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZGVersionTool.swift; sourceTree = "<group>"; };
 		86B5A2C01E3068CD00738920 /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		86B5A2C71E30AA4500738920 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		86B5A2CB1E30AD0E00738920 /* Camera&Album-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera&Album-Bridging-Header.h"; sourceTree = "<group>"; };
+		86B5A2CC1E30AE3800738920 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		91415A5742F9E730F0E56E50 /* Pods_Camera_Album.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Camera_Album.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F69F5102A0E98D0AFE974A /* Pods-Camera&Album.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camera&Album.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camera&Album/Pods-Camera&Album.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,8 +121,11 @@
 				86B5A2A01E30678800738920 /* Extension */,
 				86B5A28C1E30674F00738920 /* AppDelegate.swift */,
 				86B5A28E1E30674F00738920 /* ViewController.swift */,
+				86B5A2CC1E30AE3800738920 /* TakePhotoViewController.swift */,
 				86B5A29E1E30676C00738920 /* TopView.swift */,
 				86B5A2C01E3068CD00738920 /* BottomView.swift */,
+				86B5A2C71E30AA4500738920 /* Constant.swift */,
+				86B5A2CB1E30AD0E00738920 /* Camera&Album-Bridging-Header.h */,
 				86B5A2901E30674F00738920 /* Main.storyboard */,
 				86B5A2931E30674F00738920 /* Assets.xcassets */,
 				86B5A2951E30674F00738920 /* LaunchScreen.storyboard */,
@@ -288,6 +296,7 @@
 				86B5A2BD1E3067C300738920 /* ZGLoginTool.swift in Sources */,
 				86B5A2AA1E30678800738920 /* UIColorExt.swift in Sources */,
 				86B5A2BE1E3067C300738920 /* ZGValidateTool.swift in Sources */,
+				86B5A2C81E30AA4500738920 /* Constant.swift in Sources */,
 				86B5A2AE1E30678800738920 /* UIViewExt.swift in Sources */,
 				86B5A2A91E30678800738920 /* UIButtonExt.swift in Sources */,
 				86B5A2C11E3068CD00738920 /* BottomView.swift in Sources */,
@@ -299,6 +308,7 @@
 				86B5A2B81E3067C300738920 /* ZGHUDLoadingView.swift in Sources */,
 				86B5A2AD1E30678800738920 /* UILabelExt.swift in Sources */,
 				86B5A2BA1E3067C300738920 /* ZGHUDToastView.swift in Sources */,
+				86B5A2CD1E30AE3800738920 /* TakePhotoViewController.swift in Sources */,
 				86B5A28D1E30674F00738920 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,9 +433,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				INFOPLIST_FILE = "Camera&Album/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.Camera-Album";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera&Album/Camera&Album-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -437,9 +449,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				INFOPLIST_FILE = "Camera&Album/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.Camera-Album";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera&Album/Camera&Album-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

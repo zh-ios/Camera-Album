@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 extension UIView {
 
-    func withBackgroundColor(color: UIColor) -> Self {
+    func backgroundColor(color: UIColor) -> Self {
         self.backgroundColor = color
         return self
     }
     
-    func withCornerRadius(radius: CGFloat) -> Self {
+    func cornerRadius(radius: CGFloat) -> Self {
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
         return self
     }
     
-    func withShadow() -> Self{
+    func shadow() -> Self{
         self.layer.shadowColor = SystemColor.black_lv3.cgColor
         self.layer.shadowOffset = CGSize.init(width: 0, height: 0)
         self.layer.shadowOpacity = 0.8
