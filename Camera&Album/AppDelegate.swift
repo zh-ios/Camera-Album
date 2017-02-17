@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        /*!
+         * 设置多个按钮不能同时响应点击事件
+         */
+        UIButton.appearance().isExclusiveTouch = true;
+        
         return true
     }
 

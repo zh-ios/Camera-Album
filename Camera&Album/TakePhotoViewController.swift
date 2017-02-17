@@ -57,14 +57,26 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         self.preview.addGestureRecognizer(pinch)
         self.view.addSubview(self.preview)
         
+        weak var weakSelf = self
+        let topView = TopView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width(), height: 70))
+        topView.closeBtnOnClick = {
+            weakSelf?.dismiss(animated: true, completion: nil)
+        }
+        
+        topView.flashLightBtnOnClick = {
+            btn in
+            weakSelf!.configFlashlight(btn)
+        }
+        self.view.addSubview(topView)
+        
+        
         let bottomView = BottomView.init(frame: CGRect.init(x: 0, y: kScreenH - 120, width: self.view.width(), height: 120))
         self.view.addSubview(bottomView)
-        
-        weak var weakSelf = self
+
           bottomView.takePhotoBtnOnClick = {
             (_ btn: UIButton) in
             printLog("----点击了照相")
-            self.getPhoto()
+            weakSelf!.getPhoto()
         }
     }
     
@@ -111,6 +123,18 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     
     fileprivate func initDeviceConfig() {
         self.device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        
+        /*!
+         * 初始化闪光灯状态
+         */
+        do {
+            try self.device.lockForConfiguration()
+        } catch  {
+            return
+        }
+        self.device.flashMode = .off
+        self.device.unlockForConfiguration()
+        
         self.session = AVCaptureSession.init()
         if self.session.canSetSessionPreset(AVCaptureSessionPresetPhoto) {
             self.session.sessionPreset = AVCaptureSessionPresetPhoto
@@ -180,8 +204,26 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
             alert.show()
         }
     }
+    // 切换闪光灯
+    fileprivate func configFlashlight(_ btn: UIButton) {
+        do {
+            try self.device.lockForConfiguration()
+        } catch  {
+            return
+        }
+        if btn.isSelected == true {
+            self.device.flashMode = .on
+        } else {
+            self.device.flashMode = .off
+        }
+        self.device.unlockForConfiguration()
+    }
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
