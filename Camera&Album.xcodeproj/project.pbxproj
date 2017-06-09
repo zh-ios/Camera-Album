@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D23592B49AF9DFF0491EF69 /* Pods_Camera_Album.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91415A5742F9E730F0E56E50 /* Pods_Camera_Album.framework */; };
+		86784FF71E5707F50042BD9D /* TapedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86784FF61E5707F50042BD9D /* TapedImageView.swift */; };
+		86784FF91E5723200042BD9D /* ImageCotainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86784FF81E5723200042BD9D /* ImageCotainerView.swift */; };
 		86B5A28D1E30674F00738920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A28C1E30674F00738920 /* AppDelegate.swift */; };
 		86B5A28F1E30674F00738920 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5A28E1E30674F00738920 /* ViewController.swift */; };
 		86B5A2921E30674F00738920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B5A2901E30674F00738920 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		733D325AD7D9469437DE0186 /* Pods-Camera&Album.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camera&Album.release.xcconfig"; path = "Pods/Target Support Files/Pods-Camera&Album/Pods-Camera&Album.release.xcconfig"; sourceTree = "<group>"; };
+		86784FF61E5707F50042BD9D /* TapedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapedImageView.swift; sourceTree = "<group>"; };
+		86784FF81E5723200042BD9D /* ImageCotainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCotainerView.swift; sourceTree = "<group>"; };
 		86B5A2891E30674F00738920 /* Camera&Album.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera&Album.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B5A28C1E30674F00738920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B5A28E1E30674F00738920 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		86784FF51E5707BF0042BD9D /* ImagePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				86784FF61E5707F50042BD9D /* TapedImageView.swift */,
+				86784FF81E5723200042BD9D /* ImageCotainerView.swift */,
+			);
+			name = ImagePickerView;
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		86B5A2801E30674F00738920 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +167,7 @@
 		86B5A28B1E30674F00738920 /* Camera&Album */ = {
 			isa = PBXGroup;
 			children = (
+				86784FF51E5707BF0042BD9D /* ImagePickerView */,
 				86B5A2F61E344C9800738920 /* Images */,
 				86B5A2AF1E3067C300738920 /* Tool */,
 				86B5A2A01E30678800738920 /* Extension */,
@@ -370,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86B5A2B91E3067C300738920 /* ZGHUDProgressView.swift in Sources */,
+				86784FF71E5707F50042BD9D /* TapedImageView.swift in Sources */,
 				86B5A28F1E30674F00738920 /* ViewController.swift in Sources */,
 				86B5A2BC1E3067C300738920 /* ZGImageFromColorTool.swift in Sources */,
 				86B5A2BB1E3067C300738920 /* ZGHUDTool.swift in Sources */,
@@ -379,6 +395,7 @@
 				86B5A2C81E30AA4500738920 /* Constant.swift in Sources */,
 				86B5A2AE1E30678800738920 /* UIViewExt.swift in Sources */,
 				86B5A2A91E30678800738920 /* UIButtonExt.swift in Sources */,
+				86784FF91E5723200042BD9D /* ImageCotainerView.swift in Sources */,
 				86B5A2C11E3068CD00738920 /* BottomView.swift in Sources */,
 				86B5A2BF1E3067C300738920 /* ZGVersionTool.swift in Sources */,
 				86B5A29F1E30676C00738920 /* TopView.swift in Sources */,

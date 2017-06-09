@@ -132,7 +132,10 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         } catch  {
             return
         }
-        self.device.flashMode = .off
+        if self.device.isFlashModeSupported(.off) {
+            self.device.flashMode = .off
+        }
+        
         self.device.unlockForConfiguration()
         
         self.session = AVCaptureSession.init()
@@ -225,5 +228,13 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+
+    // 设置控制器只支持竖屏 类似的属性还有 preferredStatusBarStyle, prefersStatusBarHidden, shouldAutorotate, preferredInterfaceOrientationForPresentation
+    private var _orientation = UIInterfaceOrientationMask.portrait;
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get { return self._orientation }
+        set { self._orientation = newValue }
     }
 }
