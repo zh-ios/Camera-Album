@@ -26,6 +26,9 @@ class TopView: UIView {
      * 点击闪光灯按钮回调
      */
     var flashLightBtnOnClick: ((_ btn: UIButton) -> Void)?
+    // 闪光灯
+    var flashLightBtn: UIButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupContentView()
@@ -40,6 +43,7 @@ class TopView: UIView {
         closeBtn.addTarget(self, action: #selector(close), for: .touchUpInside)
         
         let flashLightBtn = UIButton.init(frame: CGRect.init(x: self.width()-margin-BtnW, y: margin, width: BtnW, height: BtnW))
+        self.flashLightBtn = flashLightBtn
         flashLightBtn.setBackgroundImage(UIImage.init(named: "flashlight_close"), for: .normal)
         flashLightBtn.setBackgroundImage(UIImage.init(named: "flashlight_on"), for: .selected)
         flashLightBtn.addTarget(self, action: #selector(flashLight(_:)), for: .touchUpInside)

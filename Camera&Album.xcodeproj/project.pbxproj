@@ -52,6 +52,8 @@
 		86B5A3181E344C9800738920 /* scanning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B5A3061E344C9800738920 /* scanning@3x.png */; };
 		86B5A3191E344C9800738920 /* scanning_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B5A3071E344C9800738920 /* scanning_frame@2x.png */; };
 		86B5A31A1E344C9800738920 /* scanning_frame@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B5A3081E344C9800738920 /* scanning_frame@3x.png */; };
+		86E3E78C1EF26ED700323C33 /* AssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E3E78B1EF26ED700323C33 /* AssetsModel.swift */; };
+		86E3E78E1EF27B9B00323C33 /* AssetsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E3E78D1EF27B9B00323C33 /* AssetsDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		86B5A3061E344C9800738920 /* scanning@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanning@3x.png"; sourceTree = "<group>"; };
 		86B5A3071E344C9800738920 /* scanning_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanning_frame@2x.png"; sourceTree = "<group>"; };
 		86B5A3081E344C9800738920 /* scanning_frame@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanning_frame@3x.png"; sourceTree = "<group>"; };
+		86E3E78B1EF26ED700323C33 /* AssetsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsModel.swift; sourceTree = "<group>"; };
+		86E3E78D1EF27B9B00323C33 /* AssetsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsDatasource.swift; sourceTree = "<group>"; };
 		91415A5742F9E730F0E56E50 /* Pods_Camera_Album.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Camera_Album.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F69F5102A0E98D0AFE974A /* Pods-Camera&Album.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camera&Album.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camera&Album/Pods-Camera&Album.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +171,7 @@
 		86B5A28B1E30674F00738920 /* Camera&Album */ = {
 			isa = PBXGroup;
 			children = (
+				86E3E78A1EF26EA600323C33 /* Model */,
 				86784FF51E5707BF0042BD9D /* ImagePickerView */,
 				86B5A2F61E344C9800738920 /* Images */,
 				86B5A2AF1E3067C300738920 /* Tool */,
@@ -240,6 +245,15 @@
 				86B5A3081E344C9800738920 /* scanning_frame@3x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		86E3E78A1EF26EA600323C33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86E3E78B1EF26ED700323C33 /* AssetsModel.swift */,
+				86E3E78D1EF27B9B00323C33 /* AssetsDatasource.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,12 +398,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E3E78C1EF26ED700323C33 /* AssetsModel.swift in Sources */,
 				86B5A2B91E3067C300738920 /* ZGHUDProgressView.swift in Sources */,
 				86784FF71E5707F50042BD9D /* TapedImageView.swift in Sources */,
 				86B5A28F1E30674F00738920 /* ViewController.swift in Sources */,
 				86B5A2BC1E3067C300738920 /* ZGImageFromColorTool.swift in Sources */,
 				86B5A2BB1E3067C300738920 /* ZGHUDTool.swift in Sources */,
 				86B5A2BD1E3067C300738920 /* ZGLoginTool.swift in Sources */,
+				86E3E78E1EF27B9B00323C33 /* AssetsDatasource.swift in Sources */,
 				86B5A2AA1E30678800738920 /* UIColorExt.swift in Sources */,
 				86B5A2BE1E3067C300738920 /* ZGValidateTool.swift in Sources */,
 				86B5A2C81E30AA4500738920 /* Constant.swift in Sources */,

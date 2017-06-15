@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import AssetsLibrary
+import Photos
 class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     // 预览层view
     var preview: UIView!
@@ -24,6 +25,8 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
     // 预览图像layer
     var previewLayer: AVCaptureVideoPreviewLayer!
     // session通过connection连接 stillImageOutput 输出图像
+    
+    var topView: TopView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,6 +48,9 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         initUI()
         initDeviceConfig()
         
+        let dataSource = AssetsDatasource.init()
+        let arr = dataSource.getAssets()
+        print("%ld",arr?.count);
     }
     
     fileprivate func initUI() {
@@ -59,6 +65,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         
         weak var weakSelf = self
         let topView = TopView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width(), height: 70))
+        self.topView = topView;
         topView.closeBtnOnClick = {
             weakSelf?.dismiss(animated: true, completion: nil)
         }
@@ -132,9 +139,14 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         } catch  {
             return
         }
-        if self.device.isFlashModeSupported(.off) {
+        if self.device.hasFlash && self.device.isFlashModeSupported(.off) {
             self.device.flashMode = .off
+        } else {
+            // 如果没有闪光灯则禁用闪光灯按钮 
+            self.topView.flashLightBtn.isEnabled = false
         }
+        
+        self.device.focusMode = .autoFocus;
         
         self.device.unlockForConfiguration()
         
