@@ -8,7 +8,7 @@
 
 import Foundation
 import Photos
-class AssetsDatasource {
+class AssetsDatasource: NSObject {
     
     var assetsArray: Array<AssetsModel>?
 

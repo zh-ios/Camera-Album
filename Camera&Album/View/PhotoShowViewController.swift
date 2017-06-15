@@ -1,5 +1,5 @@
 //
-//  AssetsModel.swift
+//  PhotoShowViewController.swift
 //  Camera&Album
 //
 //  Created by autohome on 2017/6/15.
@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
-class AssetsModel: NSObject {
-    var isSelected: Bool = false
+class PhotoShowViewController: UIViewController {
+    
 }

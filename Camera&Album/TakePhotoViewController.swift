@@ -50,7 +50,7 @@ class TakePhotoViewController: UIViewController,UIAlertViewDelegate {
         
         let dataSource = AssetsDatasource.init()
         let arr = dataSource.getAssets()
-        print("%ld",arr?.count);
+
     }
     
     fileprivate func initUI() {
